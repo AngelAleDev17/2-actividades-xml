@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">2--actividades</string>
+    <string name="activity_one_hello">Hola mundo</string>
+    <string name="go_to_activity_two">Actividad 2</string>
+    <string name="activity_two_message">Estas en la actividad 2</string>
+    <string name="back_to_activity_one">Regresar a actividad 1</string>
+</resources>
