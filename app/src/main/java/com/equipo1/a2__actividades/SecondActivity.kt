@@ -29,13 +29,13 @@ class SecondActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // Recibir datos del Intent
-        val itemId = intent.getIntExtra("item_id", 1)
-        val itemName = intent.getStringExtra("item_name") ?: "Platillo"
-        val itemDescription = intent.getStringExtra("item_description") ?: ""
-        val itemPrice = intent.getDoubleExtra("item_price", 0.0)
-        val itemEmoji = intent.getStringExtra("item_emoji") ?: "🍽️"
-        val itemCategory = intent.getStringExtra("item_category") ?: ""
+        // Recibir datos del Intent usando las constantes definidas en MainActivity
+        val itemId          = intent.getIntExtra(MainActivity.EXTRA_ITEM_ID, 1)
+        val itemName        = intent.getStringExtra(MainActivity.EXTRA_ITEM_NAME) ?: "Platillo"
+        val itemDescription = intent.getStringExtra(MainActivity.EXTRA_ITEM_DESCRIPTION) ?: ""
+        val itemPrice       = intent.getDoubleExtra(MainActivity.EXTRA_ITEM_PRICE, 0.0)
+        val itemEmoji       = intent.getStringExtra(MainActivity.EXTRA_ITEM_EMOJI) ?: "🍽️"
+        val itemCategory    = intent.getStringExtra(MainActivity.EXTRA_ITEM_CATEGORY) ?: ""
 
         val selectedItem = MenuItem(itemId, itemName, itemDescription, itemPrice, itemEmoji, itemCategory)
 

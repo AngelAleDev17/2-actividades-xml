@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -43,6 +44,16 @@ val menuItems = listOf(
 )
 
 class MainActivity : ComponentActivity() {
+
+    companion object {
+        const val EXTRA_ITEM_ID          = "item_id"
+        const val EXTRA_ITEM_NAME        = "item_name"
+        const val EXTRA_ITEM_DESCRIPTION = "item_description"
+        const val EXTRA_ITEM_PRICE       = "item_price"
+        const val EXTRA_ITEM_EMOJI       = "item_emoji"
+        const val EXTRA_ITEM_CATEGORY    = "item_category"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -53,12 +64,12 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(innerPadding),
                         onGoToActivityTwo = { item ->
                             val intent = Intent(this, SecondActivity::class.java).apply {
-                                putExtra("item_id", item.id)
-                                putExtra("item_name", item.name)
-                                putExtra("item_description", item.description)
-                                putExtra("item_price", item.price)
-                                putExtra("item_emoji", item.emoji)
-                                putExtra("item_category", item.category)
+                                putExtra(EXTRA_ITEM_ID,          item.id)
+                                putExtra(EXTRA_ITEM_NAME,        item.name)
+                                putExtra(EXTRA_ITEM_DESCRIPTION, item.description)
+                                putExtra(EXTRA_ITEM_PRICE,       item.price)
+                                putExtra(EXTRA_ITEM_EMOJI,       item.emoji)
+                                putExtra(EXTRA_ITEM_CATEGORY,    item.category)
                             }
                             startActivity(intent)
                         }
@@ -214,9 +225,9 @@ fun MenuItemCard(
                 )
             }
 
-            // Flecha / indicador de acción
+            // Flecha / indicador de navegación
             Icon(
-                imageVector = Icons.Filled.ShoppingCart,
+                imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.size(20.dp)
